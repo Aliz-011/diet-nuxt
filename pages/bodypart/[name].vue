@@ -1,0 +1,1 @@
+<template>bodypart details</template>
