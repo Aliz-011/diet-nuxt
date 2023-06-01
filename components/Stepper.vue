@@ -47,17 +47,13 @@ const guides = ref([
       <div
         class="bg-white rounded-full w-12 h-12 border border-gray-300 flex items-center justify-center relative"
         :class="{
-          'border-rose-600': step === item.id,
-          'bg-rose-500': step > item.id,
+          'border-rose-500': step === item.id,
+          'text-rose-500': step > item.id,
         }"
         v-for="item in guides"
         :key="item.id"
       >
-        <Icon
-          name="ic:round-check"
-          class="text-gray-100 w-6 h-6"
-          v-if="step > item.id"
-        />
+        <Icon name="ic:round-check" class="w-6 h-6" v-if="step > item.id" />
         <span class="text-gray-700" v-else>{{ item.id }}</span>
       </div>
     </div>

@@ -23,7 +23,7 @@ export default defineNuxtConfig({
       name: 'Deen Exercising',
       short_name: 'Deen',
       description: 'web management app',
-      theme_color: '#ee5253',
+      theme_color: '#f43f5e',
       icons: [
         {
           src: 'pwa-192x192.png',
@@ -54,5 +54,12 @@ export default defineNuxtConfig({
         usePolling: true,
       },
     },
+  },
+  ssr: false,
+  runtimeConfig: {
+    MONGO_URI: process.env.VITE_MONGO_URI,
+  },
+  nitro: {
+    plugins: ['@/server/db/index.js'],
   },
 });

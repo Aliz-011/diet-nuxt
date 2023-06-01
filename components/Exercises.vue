@@ -18,7 +18,6 @@
           :class="store.darkTheme ? 'bg-white' : 'bg-black'"
         />
       </div>
-
       <!-- exercises by target muscles -->
       <div
         class="flex flex-col gap-2 mb-4"
@@ -27,26 +26,30 @@
       >
         <NuxtLink
           :to="'bodypart/' + bodyPart"
-          class="font-bold text-sm capitalize"
+          class="font-bold text-sm capitalize w-fit hover:text-gray-500 inline-flex items-center"
         >
           {{ bodyPart }}
+          <Icon
+            name="material-symbols:arrow-right-alt-rounded"
+            class="w-5 h-5 ml-1"
+          />
         </NuxtLink>
 
-        <NuxtLink
-          :to="'exercise/' + exercise.id"
-          class="flex items-center gap-2 rounded-lg shadow px-2 py-1"
+        <div
+          class="flex items-center gap-2 rounded-lg shadow pl-2 pr-3 py-1"
           :class="store.darkTheme ? 'bg-gray-900' : 'bg-white'"
           v-for="exercise in exercises"
           :key="exercise.id"
         >
           <Icon
-            name="material-symbols:arrow-circle-right"
-            class="text-rose-500"
+            name="mdi:heart-circle"
+            class="h-5 w-5 text-rose-500 cursor-pointer"
+            @click="store.addWorkout(exercise)"
           />
-          <span class="font-semibold text-sm capitalize">{{
+          <span class="font-semibold text-sm capitalize flex-1">{{
             exercise.name
           }}</span>
-        </NuxtLink>
+        </div>
       </div>
     </div>
   </section>

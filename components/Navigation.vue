@@ -86,9 +86,8 @@
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
 
-      <button
-        data-tooltip-target="tooltip-profile"
-        type="button"
+      <NuxtLink
+        href="/profile"
         class="inline-flex flex-col items-center justify-center px-5 rounded-r-full hover:bg-gray-50 group"
       >
         <Icon
@@ -97,7 +96,7 @@
         />
 
         <span class="sr-only">Profile</span>
-      </button>
+      </NuxtLink>
       <div
         id="tooltip-profile"
         role="tooltip"

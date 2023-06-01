@@ -52,26 +52,21 @@ const store = useAuthStore();
       class="z-10 absolute right-4 sm:right-0 bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
       :class="isActive ? 'block' : 'hidden'"
     >
-      <ul
-        class="py-2 text-sm text-gray-700"
-        aria-labelledby="dropdownDividerButton"
-      >
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Dashboard</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Earnings</a>
-        </li>
-      </ul>
       <div class="py-2">
-        <NuxtLink
-          to="/register"
-          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >Login</NuxtLink
+        <button
+          @click="async () => await store.logout()"
+          class="inline-flex w-full justify-start px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          v-if="store.user"
         >
+          Logout
+        </button>
+        <NuxtLink
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          href="/register"
+          v-else
+        >
+          Login
+        </NuxtLink>
       </div>
     </div>
   </header>
